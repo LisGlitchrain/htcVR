@@ -194,6 +194,7 @@
     <Compile Include="Assets\SampleScenes\Scripts\PlaceTargetWithMouse.cs" />
     <Compile Include="Assets\SampleScenes\Scripts\SlowMoButton.cs" />
     <Compile Include="Assets\Scripts\CharMagnetic.cs" />
+    <Compile Include="Assets\Scripts\InputManager.cs" />
     <Compile Include="Assets\Scripts\MagniteRaycaster.cs" />
     <Compile Include="Assets\Scripts\MoveСontroller.cs" />
     <Compile Include="Assets\Scripts\MyTeleport.cs" />

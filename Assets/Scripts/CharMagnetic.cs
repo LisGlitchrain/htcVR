@@ -102,7 +102,11 @@ namespace CharSpell
         //Добавление элемента в цепочку, при указании одного элемента
         public void AddElementToChain(Transform trans)
         {
-            SetBlue(MagniteSpell.RG[MagniteSpell.RG.Count - 1].transform.parent.transform);
+            for(var i=0; i< MagniteSpell.RG.Count;i++)
+            {
+                print("I =" + i + " = " + MagniteSpell.RG[i].gameObject.name);
+            }
+            SetBlue(MagniteSpell.RG[MagniteSpell.RG.Count - 1].transform);
             SetRed(trans);
         }
 
@@ -165,8 +169,8 @@ namespace CharSpell
                     MagniteSpell.JointList[i].spring += fNum;
                     MagniteSpell.JointList[i].damper += fNum;
 
-                    MagniteSpell.JointList[i].spring += Mathf.Clamp(MagniteSpell.JointList[i].damper,0, MaxMagniteForce);
-                    MagniteSpell.JointList[i].damper += Mathf.Clamp(MagniteSpell.JointList[i].damper, 0, MaxMagniteForce);
+                    MagniteSpell.JointList[i].spring = Mathf.Clamp(MagniteSpell.JointList[i].damper,0, MaxMagniteForce);
+                    MagniteSpell.JointList[i].damper = Mathf.Clamp(MagniteSpell.JointList[i].damper, 0, MaxMagniteForce);
                 }
 
                 for(var i=0;i< MagniteSpell.RG.Count;i++)

@@ -13,7 +13,7 @@ namespace HTC.UnityPlugin.Pointer3D
             Blue,
             Red,
         }
-        [SerializeField] TypeOfMagnite ColorOfMagnite;
+        public TypeOfMagnite ColorOfMagnite;
         [Tooltip("Ссылка на  spell персонажа 0.")]
         [SerializeField] CharMagnetic refToChar;
         [SerializeField] Pointer3DRaycaster raycaster;
@@ -56,6 +56,13 @@ namespace HTC.UnityPlugin.Pointer3D
                 }
             }
             else return;
+        }
+
+        public void AddElementToChain()
+        {
+            Raycasting();
+            refToChar.AddElementToChain(curObj.gameObject.transform);
+            StartMagnite();
         }
 
 
