@@ -125,10 +125,17 @@ namespace CharSpell
 
         void Highlighting(bool isBlue, Transform trans)
         {
-            ParticleSystem ps = Instantiate(hl_Reference, trans, false);
+            ParticleSystem ps = trans.GetComponentInChildren<ParticleSystem>();
+            if (ps == null)
+            {
+                Instantiate(hl_Reference, trans, false);
+                ps.gameObject.SetActive(true);
+                MagniteSpell.HighLight.Add(ps);
+            }
+            print("name " + ps.name);
+
             if (isBlue) ps.GetComponent<Renderer>().material = BlueMat;
             else ps.GetComponent<Renderer>().material = RedMat;
-            MagniteSpell.HighLight.Add(ps);
         }
 
         public void DestroyAllJoint()
@@ -149,7 +156,7 @@ namespace CharSpell
             EreaseSpell();
 
             for (var i = 0; i < MagniteSpell.HighLight.Count; i++)
-                Destroy(MagniteSpell.HighLight[i]);
+                Destroy(MagniteSpell.HighLight[i].transform.gameObject);
             MagniteSpell.HighLight.Clear();
             DisableHolders();
         }

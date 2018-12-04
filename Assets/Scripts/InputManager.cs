@@ -36,6 +36,7 @@ namespace CharSpell
 
             if (Input.GetMouseButtonDown(2)) { mraycaster.AddElementToChain(); print("middle"); }
 
+            if (Input.GetKeyDown(KeyCode.C)) cm.DestroyAllJoint();
 
         }
     }
